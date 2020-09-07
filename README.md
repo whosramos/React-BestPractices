@@ -70,7 +70,7 @@ return (
 ## Put CSS in JavaScript
 When you start working on a project, it is a common practice to keep all the CSS styles in a single SCSS file. The use of a global prefix prevents any potential name collisions. However, when your project scales up, this solution may not be feasible.
 
-There are many libraries that enable you to write CSS in JS. (**EmotionJS**)[https://github.com/emotion-js/emotion] and (**Glamorous**)[https://glamorous.rocks/] are the two most popular CSS in JS libraries.
+There are many libraries that enable you to write CSS in JS. [**EmotionJS**](https://github.com/emotion-js/emotion) and [**Glamorous**](https://glamorous.rocks/) are the two most popular CSS in JS libraries.
 
 Here’s an example of using EmotionJS in your project. EmotionJS can generate complete CSS files for your production. First, install EmotionJS using ```npm```.
 
@@ -97,7 +97,7 @@ let Component = props => {
 }
 ```
 
-Here is the link to the complete (documentation of EmotionJS)[https://emotion.sh/docs/introduction].
+Here is the link to the complete [documentation of EmotionJS](https://emotion.sh/docs/introduction].
 
 ## Comment only where necessary
 Attach comments to code only where necessary. This is not only in keeping with React best practices, it also serves two purposes at the same time:
@@ -124,4 +124,4 @@ In case JSX is not your language of choice, you can use lowercase letters. Howev
 ## Mind the other naming conventions
 When working with React, you are generally using JSX (JavaScript Extension) files. Any component that you create for React should therefore be named in Pascal case, or upper camel case. This translates to names without spaces and the capitalizing the first letter of every word.
 
-If you want to create a function that submits a form, you should name it ```SubmitForm``` in upper camel case, rather than ```submitForm```, ```submit_form```, or ```submit_form```. Upper camel case is more commonly called Pascal case. Here is a further (**list of examples**)[https://techterms.com/definition/pascalcase] of variable and function names in Pascal case.
+If you want to create a function that submits a form, you should name it ```SubmitForm``` in upper camel case, rather than ```submitForm```, ```submit_form```, or ```submit_form```. Upper camel case is more commonly called Pascal case. Here is a further [**list of examples**](https://techterms.com/definition/pascalcase) of variable and function names in Pascal case.
