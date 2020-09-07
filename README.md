@@ -125,3 +125,66 @@ In case JSX is not your language of choice, you can use lowercase letters. Howev
 When working with React, you are generally using JSX (JavaScript Extension) files. Any component that you create for React should therefore be named in Pascal case, or upper camel case. This translates to names without spaces and the capitalizing the first letter of every word.
 
 If you want to create a function that submits a form, you should name it ```SubmitForm``` in upper camel case, rather than ```submitForm```, ```submit_form```, or ```submit_form```. Upper camel case is more commonly called Pascal case. Here is a further [**list of examples**](https://techterms.com/definition/pascalcase) of variable and function names in Pascal case.
+
+## Separate stateful aspects from rendering
+Components in React can be stateful or stateless. Stateful components store information about the component’s state and provide the necessary context. In contrast, stateless components have no memory and cannot give context to other parts of the UI. They only receive props (inputs) from parent component and return you JSX elements. They are scalable and reusable, and similar to pure function in JavaScript.
+
+One of React best practices is to keep your stateful data-loading logic separate from your rendering stateless logic. It’s better to have one stateful component to load data and another stateless component to display that data. This reduces the complexity of the components.
+
+The later React versions v16.8 have a new feature – React Hooks, which write stateful function-related components. This may eventually eliminate the need for class-based components.
+
+For example, your app is fetching some data on mount. What you want to do is manage the data in the main component and pass the complex render task to a sub-component as props.
+
+```js
+import RenderTable from './RenderTable';
+
+class Table extends Component {
+  state = { loading: true };
+
+  render() {
+    const { loading, tableData } = this.state;
+    return loading ? <Loading/> : <RenderTable data={tableData}/>;
+  }
+
+  componentDidMount() {
+    fetchTableData().then( tableData => {
+      this.setState( { loading: false, tableData } );
+    } );
+  }
+}
+```
+
+## Code should execute as expected and be testable
+Really, this rule needs no explanation. The code you write should behave as expected, and be testable easily and quickly. It’s a good practice to name your test files identical to the source files with a ```.test``` suffix. It’ll then be easy to find the test files.
+
+You can use JEST to test your React code.
+
+
+## All files related to any one component should be in a single folder
+Keep all files relating to any one component in a single folder, including styling files.
+
+If there’s any small component used by a particular component only, it makes sense to keep these smaller components all together within that component folder. The hierarchy will then be easy to understand – large components have their own folder and all their smaller parts are split into sub-folders. This way, you can easily extract code to any other project or even modify the code whenever you want.
+
+For instance, for the ```Form``` component, all pieces such as CSS files, icons, images, tests and any other sub-components relating to Form should all reside in the same folder. If you name files sensibly, and keep related files together logically, you’ll not have any difficulty finding them later.
+
+## Use tools like Bit
+One of React best practices that helps to organize all your React components is the use of tools like [Bit](https://bit.dev/).
+
+These tools help to maintain and reuse code. Beyond that, it helps code to become discoverable, and promotes team collaboration in building components. Also, code can be synced across projects.
+
+## Use snippet libraries
+Code snippets help you to keep up with the best and most recent syntax. They also help to keep your code relatively bug free, so this is one of the React best practices that you should not miss out on.
+
+There are many snippet libraries that you can use, like, ES7 React, Redux, JS Snippets, etc.
+
+## Write tests for all code
+In any programming language, adequate testing ensures that any new code added to your project integrates well with existing code and does not break existing functionality. It is a good idea to write tests for any new component that you create. As a good practice, you should create a ```__Test__``` directory within your component’s directory to house all relevant tests.
+
+You can broadly divide tests in React into two parts: testing the functionality of components using a React app, and tests on your complete application once it renders in the browser. You can use cross browser testing tools for tests in the latter category.
+
+For the former, you can use a JavaScript test runner, [Jest](https://jestjs.io/) to emulate the HTML DOM using ```jsdom``` to test React components. While a completely accurate test is only possible in a browser on a real device, Jest provides a good approximation of the real testing environment during the development phase of your project.
+
+## Follow linting rules, break up lines that are too long
+Linting is a process wherein we run a program that analyses code for potential errors.
+
+Mostly, we use it for language-related issues. But it can also fix many other issues automatically, particularly code style. Using a linter in your React code helps to keep your code relatively error- and bug-free.
