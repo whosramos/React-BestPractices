@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Navbar from './components/layout/Navbar'
-import Dashboard from './components/dashboard/Dashboard'
-import GroupDetails from './components/groups/GroupDetails'
-import SignIn from './components/auth/SignIn'
-import SignUp from './components/auth/SignUp'
-import CreateGroup from './components/groups/CreateGroup'
-import Footer from './components/layout/Footer'
 
 class App extends Component {
   render() {
+    const tips = [
+      'Keep components small and function-specific',
+      'Reusability is important, so keep creation of new components to the minimum required',
+      'Consolidate duplicate code – DRY your code',
+      'Put CSS in JavaScript',
+      'Comment only where necessary',
+      'Name the component after the function',
+      'Use capitals for component names',
+      'Mind the other naming conventions',
+      'Separate stateful aspects from rendering',
+      'Code should execute as expected and be testable',
+      'All files related to any one component should be in a single folder',
+      'Use tools like Bit',
+      'Use snippet libraries',
+      'Write tests for all code', 
+      'Follow linting rules, break up lines that are too long', 
+    ];
+    
+    const groupTips = tips.map((elem, index) => {
+        return <li key={index} className="item">{elem}</li>
+    });
+    
     return (
-      <BrowserRouter>
         <div className="App">
-          <Navbar />
-          <Switch>
-            <Route exact path='/'component={Dashboard} />
-            <Route path='/group/:id' component={GroupDetails} />
-            <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/create' component={CreateGroup} />
-          </Switch>
+          <div className="title">React Best Practice </div>
+          <ul className="groupTips">{groupTips}</ul>
         </div>
-        {/* <Footer/> */}
-      </BrowserRouter>
     );
   }
 }
