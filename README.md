@@ -97,7 +97,7 @@ let Component = props => {
 }
 ```
 
-Here is the link to the complete [documentation of EmotionJS](https://emotion.sh/docs/introduction].
+Here is the link to the complete [documentation of EmotionJS](https://emotion.sh/docs/introduction).
 
 ## Comment only where necessary
 Attach comments to code only where necessary. This is not only in keeping with React best practices, it also serves two purposes at the same time:
